@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>용병 구인 사이트</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h1>축구/풋살 용병 구인</h1>
+    
+        <h2>용병 리스트(총: {{cnt}}명)</h2>
+        {% for blog in firstapps%}
+            이름: {{blog.name}} |
+            나이: {{blog.age}} |
+            종목: {{blog.event}} <a href="{%url 'detail' blog.id%}">더보기</a>
+            <br><br>
+        {% endfor %}
+        <br>
+        <h3><a href="{%url 'new'%}">용병 등록</a><h3>
+    
+    </div>
+</body>
+</html>
+
+
