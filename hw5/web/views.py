@@ -38,3 +38,31 @@ def create(request):
     new_blog.age=request.POST['age']
     new_blog.save()
     return redirect('detail',new_blog.id)
+
+def edit(request,id):
+    edit_person = person.objects.get(id=id)
+    return render(request,'edit.html',{'person':edit_person})
+
+def update(request, id):
+    update_person = person.objects.get(id=id)
+    update_person.name=request.POST['name']
+    update_person.event=request.POST['event']
+    update_person.position=request.POST['position']
+    update_person.intro=request.POST['intro']
+    
+    if len(request.POST.getlist('elite')) ==0:
+        important = False
+    else:
+        important = True
+    update_person.elite=important
+    update_person.live=request.POST['live']
+    update_person.birth=timezone.now()
+    update_person.age=request.POST['age']
+    update_person.save()
+    return redirect('detail',update_person.id)
+
+def delete(request,id):
+    delete_person=person.objects.get(id=id)
+    delete_person.delete()
+    return redirect('home')
+

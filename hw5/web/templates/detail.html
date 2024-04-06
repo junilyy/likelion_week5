@@ -13,4 +13,6 @@
     <form action="{%url 'home'%}">
         <input type="submit" value="홈으로">
     </form>
+    <a href="{% url 'edit' per.id %}">수정하기</a>
+    <a href="{% url 'delete' per.id %}">삭제하기</a>
 </div>
