@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <div style="text-align:center">
     
     <h1>용병 상세정보</h1>
@@ -9,6 +12,7 @@
     <h3>거주지: {{per.live}}<br><h3> 
     <h3>자기소개: {{per.intro}}<br><h3> 
     <h3>작성일시: {{per.birth}}<br><h3> 
+        
     <br>
     <form action="{%url 'home'%}">
         <input type="submit" value="홈으로">
@@ -16,3 +20,4 @@
     <a href="{% url 'edit' per.id %}">수정하기</a>
     <a href="{% url 'delete' per.id %}">삭제하기</a>
 </div>
+{% endblock %}

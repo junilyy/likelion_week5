@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from .models import person
 from django.utils import timezone
+from .forms import PersonForm
 # Create your views here.
 
 def home(request):
@@ -19,7 +20,8 @@ def detail(request,id):
     return render(request,"detail.html",{'per':per, 'el':el})
 
 def new(request):
-    return render(request, "new.html")
+    form = PersonForm()
+    return render(request, "new.html",{'form':form})
 
 def create(request):
     new_blog=person()

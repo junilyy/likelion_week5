@@ -3,9 +3,9 @@
 {% block content %}
 
 <div style="text-align: center">
-    <h1></h1>
+    <h1>Login</h1>
 
-    <form action="{%url 'create'%}" method="post">
+    <form action="{%url 'login'%}" method="post">
         {%csrf_token%}
         {{form.as_p}}
         <br><br>
