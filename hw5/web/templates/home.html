@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated%}
-    안녕하세요 {{user.nickname}}
-    {% endif %}
+
 <body>
     <div style="text-align: center">
         <h1>축구/풋살 용병 구인</h1>
@@ -12,11 +10,14 @@
         {% for blog in firstapps%}
             이름: {{blog.name}} |
             나이: {{blog.age}} |
-            종목: {{blog.event}} <a href="{%url 'detail' blog.id%}">더보기</a>
+            종목: {{blog.event}} <a href="{%url 'detail' blog.id %}">더보기</a>
             <br><br>
         {% endfor %}
         <br>
+    {% if user.is_authenticated%}
         <h3><a href="{%url 'new'%}">용병 등록</a><h3>
+    {% endif %}
+        
     
     </div>
 </body>

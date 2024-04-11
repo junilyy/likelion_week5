@@ -13,11 +13,12 @@ def home(request):
 
 def detail(request,id):
     per=get_object_or_404(person,pk=id)
+    at=request.user
     if per.elite==False:
         el='N'
     else:
         el='Y'
-    return render(request,"detail.html",{'per':per, 'el':el})
+    return render(request,"detail.html",{'per':per, 'el':el ,'at':at})
 
 def new(request):
     form = PersonForm()
@@ -29,7 +30,7 @@ def create(request):
     new_blog.event=request.POST['event']
     new_blog.position=request.POST['position']
     new_blog.intro=request.POST['intro']
-    
+    new_blog.a=request.user
     if len(request.POST.getlist('elite')) ==0:
         important = False
     else:
@@ -67,4 +68,3 @@ def delete(request,id):
     delete_person=person.objects.get(id=id)
     delete_person.delete()
     return redirect('home')
-

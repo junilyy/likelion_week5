@@ -5,3 +5,4 @@ class PersonForm(forms.ModelForm):
     class Meta:
         model = person
         fields = ['name','event','position','intro','elite','live','age']
+        exclude = ['a']

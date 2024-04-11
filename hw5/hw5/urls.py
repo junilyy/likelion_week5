@@ -23,6 +23,5 @@ urlpatterns = [
     path('', home, name="home"),
     path('web/', include('web.urls')),
     path('account/',include('account.urls')),
-     
     
 ]
